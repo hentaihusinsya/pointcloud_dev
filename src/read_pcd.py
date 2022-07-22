@@ -9,7 +9,9 @@ from sensor_msgs.msg import PointCloud2
 
 def callback(data):
 
-    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+    b = pc2.read_points_list(data)
+    print(len(b))
+    #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
 
 def listener():
     rospy.init_node('listener', anonymous=True)
