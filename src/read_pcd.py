@@ -9,8 +9,11 @@ from sensor_msgs.msg import PointCloud2
 
 def callback(data):
 
-    b = pc2.read_points_list(data)
-    print(len(b))
+    point_cloud_list = pc2.read_points_list(data)
+    #print(point_cloud_list)
+    point_cloud_numpy = np.array(point_cloud_list)
+    print(point_cloud_numpy.shape)
+    
     #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
 
 def listener():
@@ -19,6 +22,8 @@ def listener():
     rospy.Subscriber('/camera/depth/color/points', PointCloud2, callback)
 
     rospy.spin()
+
+
 
 if __name__ == '__main__':
     listener()
