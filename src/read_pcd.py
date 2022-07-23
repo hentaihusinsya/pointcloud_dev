@@ -15,6 +15,8 @@ class read_pcd:
         point_cloud_numpy = np.array(point_cloud_list)
         print(point_cloud_numpy.shape)
 
+    #def convert_array_to_multiarray(multiarray_type, np_array):
+
     def listener(self):
         rospy.init_node('listener', anonymous=True)
 
@@ -27,9 +29,9 @@ class read_pcd:
 
 
 
-if __name__ == '__main__':
-    a =  read_pcd()
-    a.listener()
+#if __name__ == '__main__':
+    #a =  read_pcd()
+    #a.listener()
 
 
 
